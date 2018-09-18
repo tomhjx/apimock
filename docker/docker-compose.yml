@@ -1,0 +1,13 @@
+version: '3'
+services:
+  httpmock.work.net:
+      build: ./
+      container_name: httpmock
+      volumes:
+        - ../htdocs:/data1/htdocs
+        - ../log:/data1/log/nginx/
+        - ../etc/conf.d:/etc/nginx/conf.d/
+        - ../etc/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf
+      restart: always
+      ports:
+        - "8010:80"
